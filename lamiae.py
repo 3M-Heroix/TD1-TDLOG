@@ -1,0 +1,2 @@
+class non:
+    pass
