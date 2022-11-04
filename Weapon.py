@@ -1,3 +1,6 @@
+#from re import X
+
+
 class Weapon :
     def __init__(self, ammunitions=int, range=int):
         self.ammunitions = ammunitions
@@ -17,7 +20,8 @@ class Lance_missiles_antisurface(Weapon) :
     def fire_at(self, x, y, z):
         assert Lance_missiles_antisurface.nbr_ammunitions >0, "NoAmmunitionError"
         assert z==0, "OutOfRangeError"
-        Lance_missiles_antisurface.nbr_munitions-=1
+        self.__class__.nbr_ammunitions -= 1#si on ne fais pas comme ca, la constante nbr_ammunitions propre à la classe va changer après chaque création d'objet et appelation à la fonction fire_at.
+        #Lance_torpilles.nbr_ammunitions-=1
         return super().fire_at(x, y, z)     
 
 class Lance_missiles_antiair(Weapon) :
@@ -27,7 +31,8 @@ class Lance_missiles_antiair(Weapon) :
     def fire_at(self, x, y, z):
         assert Lance_missiles_antiair.nbr_ammunitions >0, "NoAmmunitionError"
         assert z>0,"OutOfRangeError"
-        Lance_missiles_antiair.nbr_ammunitions-=1
+        self.__class__.nbr_ammunitions -= 1#si on ne fais pas comme ca, la constante nbr_ammunitions propre à la classe va changer après chaque création d'objet et appelation à la fonction fire_at.
+        #Lance_torpilles.nbr_ammunitions-=1
         return super().fire_at(x, y, z)
 
 class Lance_torpilles(Weapon) :
@@ -37,7 +42,8 @@ class Lance_torpilles(Weapon) :
     def fire_at(self, x, y, z):
         assert Lance_torpilles.nbr_ammunitions >0, "NoAmmunitionError"
         assert z<=0, "OutOfRangeError"
-        Lance_torpilles.nbr_ammunitions-=1
+        self.__class__.nbr_ammunitions -= 1 #si on ne fais pas comme ca, la constante nbr_ammunitions propre à la classe va changer après chaque création d'objet et appelation à la fonction fire_at.
+        #Lance_torpilles.nbr_ammunitions-=1
         return super().fire_at(x, y, z)
         
 
@@ -45,9 +51,7 @@ class Lance_torpilles(Weapon) :
 
 
 
-#PO = Lance_missiles_antisurface(3, 4)
-#print(PO.fire_at(1,1,1)==assertRaises("OutOfRangeError"))
-#print(PO.range)
+
 #return '{}: {} - {}'.format(premier_à_ecrie, deuxième_à_ecrire, 3_eme)
 #on peut aussi écrire :
 #return f"{premier}: {deuxième} - {troixième}
