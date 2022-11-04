@@ -55,3 +55,7 @@ class Lance_torpilles(Weapon) :
 #return '{}: {} - {}'.format(premier_à_ecrie, deuxième_à_ecrire, 3_eme)
 #on peut aussi écrire :
 #return f"{premier}: {deuxième} - {troixième}
+#PO = Lance_missiles_antisurface(3, 4)
+#print(PO.fire_at(1,1,1)==assertRaises("OutOfRangeError"))
+#print(PO.range)
+
