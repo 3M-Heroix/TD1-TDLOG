@@ -81,7 +81,7 @@ class Destroyer(Vessel):
         assert self.__class__.max_hits != 0, "DestroyedError"
         T = self.coordinates
         self.distance = sqrt((T[0] - x) ** (2) + (T[1] - y) ** (2) + (T[2] - z) ** (2))
-        assert self.distance < Lance_torpilles.Rayon, "OutOfRangeError"
+        assert self.distance < git Lance_torpilles.Rayon, "OutOfRangeError"
         Weapon.fire_at(x, y, z)  # il faut ne pas dépasser le nombre des ammunitions limite de l'arme en question
 
     def go_to(x, y, z):
